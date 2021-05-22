@@ -7,8 +7,6 @@ const Checkout = () => {
   const { state, removeFromCart } = useContext(AppContext);
   const { cart } = state;
 
-  console.log(cart);
-
   const handleRemove = product => () => {
     removeFromCart(product);
   };
@@ -28,7 +26,7 @@ const Checkout = () => {
           <h3>Sin pedidos....</h3>
         )}
         {cart.map((item) => (
-          <div className="Checkout-item">
+          <div className="Checkout-item" key={item.title}>
             <div className="Checkout-element">
               <h4>{item.title}</h4>
               <span>${item.price}</span>
